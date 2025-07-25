@@ -16,11 +16,22 @@
       ]
     }
   }
+
+  #!/bin/bash
+
+echo "📦 Installing Git LFS inside Codespace..."
+
+# Use Ubuntu fallback for Git LFS installer
+os=ubuntu dist=focal curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+
+# Install Git LFS
+apt-get update && apt-get install -y git-lfs
+
+# Set up Git LFS
+git lfs install
+
+echo "✅ Git LFS setup complete."
+
 }
 
-#!/bin/bash
 
-# Install Git LFS in Codespaces
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-apt-get update && apt-get install -y git-lfs
-git lfs install
